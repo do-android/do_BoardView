@@ -1,0 +1,106 @@
+{
+  "ID": "do_BorderLayout",
+  "IsContainer": "1",
+  "Type": "UI",
+  "Name": "边界布局",
+  "Version": "Internal",
+  "Description": "布局组件，里面最多能放五个子组件，分别停靠在上、右、下、左、中五条边线，组件绘制顺序为上右下左中，组件之间不会重叠，若某一方向的子组件过大，造成下一顺序的子组件没有可用空间绘制则不显示下一顺序的子组件",
+  "Icon": "",
+  "IOS": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Android": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Windows": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "WindowsPhone": {
+    "Support": 0,
+    "MinVersion": ""
+  },
+  "Html": {
+    "Support": 1,
+    "MinVersion": "5.0"
+  },
+  "Properties": [
+    {
+      "ID": "fillParent",
+      "Name": "填充父容器",
+      "Type": "String",
+      "DefaultValue": "none",
+      "EditType": "1",
+      "Group": "",
+      "Description": "该属性表示某个方向的子组件会自动填充当前BorderLayout的剩余空间，有六种情况，none-不填充；top-居上的子组件向下填充；right-居右的子组件向左填充；bottom-居下的子组件向上填充；left-居左的子组件向右填充；center-居中的子组件向四周填充",
+      "Design": {
+        "Type": "List",
+        "Data": [
+          {
+            "id": "none",
+            "value": "不填充"
+          },
+          {
+            "id": "top",
+            "value": "居上的组件向下填充"
+          },
+          {
+            "id": "right",
+            "value": "居右的子组件向左填充"
+          },
+          {
+            "id": "bottom",
+            "value": "居下的子组件向上填充"
+          },
+          {
+            "id": "left",
+            "value": "居左的子组件向右填充"
+          },
+          {
+            "id": "center",
+            "value": "居中的子组件向四周填充"
+          }
+        ]
+      }
+    }
+  ],
+  "Events": [],
+  "syncMethodes": [
+    {
+      "ID": "add",
+      "Name": "插入一个UI",
+      "Description": "可以在BorderLayout控件内指定方向上动态插入新的UI组件，这个UI文件可以有自己的脚本代码，但是和这个UI的所在Page共享一个脚本环境。",
+      "ReturnType": "String",
+      "ReturnDesc": "返回这个UI文件对应的根节点view的地址",
+      "Paras": [
+        {
+          "ID": "id",
+          "Name": "唯一标识",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "为了避免UI自身的id属性和父容器里其他子UI的id重复。这个id作为一个在父容器的唯一标识"
+        },
+        {
+          "ID": "path",
+          "Name": "插入的UI组件对应的UI文件路径",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "插入的UI文件路径，支持data://和source://目录。"
+        },
+        {
+          "ID": "direction",
+          "Name": "方向",
+          "Type": "String",
+          "Required": 1,
+          "DefaultValue": "",
+          "Description": "插入的UI组件相对BorderLayout的方向，有五个方向：top-居上；right-居右；bottom-居下；left-居左；center-居中"
+        }
+      ]
+    }
+  ],
+  "asyncMethodes": []
+}
